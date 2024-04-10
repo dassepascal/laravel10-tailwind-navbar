@@ -57,6 +57,7 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
+            </div>
                 @else
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
@@ -67,8 +68,8 @@
                     </x-nav-link>
                 </div>
                 @endif
-            </div>
-@endauth
+            {{-- </div> --}}
+            @endauth
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open"
@@ -119,12 +120,14 @@
                 </div>
             </div>
             @else
+            <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600 bg-red-500">
             <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
                 {{ __('Login') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
                 {{ __('Register') }}
             </x-responsive-nav-link>
+            </div>
             @endauth
         </div>
         @endif
